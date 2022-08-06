@@ -12,7 +12,8 @@ t1 = 0.1
 GPIO.setwarnings(False)
 GPIO.setup( pttpin , GPIO.OUT )
 
-while 1:
+try:
+    while 1:
         GPIO.output( pttpin , GPIO.HIGH)
         sleep( t1 )
         GPIO.output( pttpin , GPIO.LOW)
@@ -27,3 +28,6 @@ while 1:
             t2 = 1
         else:
             t2 = t2 - 0.17
+finally:
+    GPIO.cleanup()
+
